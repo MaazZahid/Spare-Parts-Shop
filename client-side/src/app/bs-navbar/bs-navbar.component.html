@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <i class="fa fa-xing fa-1x" aria-hidden="true">Home</i>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shopping-cart">
+            <i class="fa fa-cart-plus" aria-hidden="true"></i> <span
+             class="badge badge-pill badge-warning">{{ this.cartService.navbarQuantity }}
+            </span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li *ngIf="this.authService.loggedInState" ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>Maaz Zahid</b>
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- <a class="dropdown-item" routerLink="/my-orders">My Orders</a>
+            <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a> -->
+            <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/" (click)="logout()">LogOut</a>
+          </div>
+        </li>
+          <li class="nav-item">
+            <a *ngIf="!this.authService.loggedInState" class="nav-link" routerLink="/login"><b>Login</b></a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,31 @@
+<h1>Shpping Cart</h1>
+<p>
+  You have {{ this.cartService.navbarQuantity }} items in your shopping cart.
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let i of items">
+    <tr>
+      <th><div [style.backgroundImage]="'url(' +i.imageurl+ ')'" class="thumbnail"></div></th>
+      <td>{{ i.title }}</td>
+      <td>{{ i.quantity }}</td>
+      <td>Rs:{{ i.price * i.quantity }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th *ngIf="totalPrice != 0">Rs:{{ totalPrice }}</th>
+    </tr>
+  </tfoot>
+</table>
+<a *ngIf="this.cartService.navbarQuantity != 0" routerLink="/check-out" class="btn btn-primary">Check Out</a>

@@ -1,0 +1,4 @@
+To perform CRUD operations login with admin username and password.
+
+1.Username = Maaz
+2.Password = 123
